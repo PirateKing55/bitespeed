@@ -1,5 +1,25 @@
 import { z } from "zod";
 
+/**
+ * @swagger
+ * components:
+ *   schemas:
+ *     IdentifyInput:
+ *       type: object
+ *       properties:
+ *         email:
+ *           type: string
+ *           format: email
+ *           description: Email address of the contact.
+ *         phoneNumber:
+ *           type: string
+ *           pattern: "^\\d+$"
+ *           description: Phone number of the contact (digits only).
+ *       example:
+ *         email: "example@example.com"
+ *         phoneNumber: "1234567890"
+ */
+
 export const identifySchema = z
   .object({
     email: z.string().email().optional(),
