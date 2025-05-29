@@ -70,6 +70,30 @@
     ```
     This uses `nodemon` to monitor your TypeScript files for changes and automatically restart the server.
 
+## Running with docker 🐋
+
+1.  **Create a .env file in the root of the project:**
+
+    ```env
+    PORT=3000
+    NODE_ENV=production
+    DATABASE_URL=your-database-url
+    ```
+
+2.  **Build and run the container:**
+
+    ```bash
+    docker-compose up --build
+    ```
+
+    -The app will be available at [http://localhost:3000](http://localhost:3000)
+
+3.  **Stop the container:**
+
+    ```bash
+    docker-compose down
+    ```
+
 ## API Endpoint
 
 ### `POST /identify`
