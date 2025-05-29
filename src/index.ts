@@ -2,6 +2,7 @@ import express from "express";
 import identifyRouter from "./routes/identify";
 import { initDb } from "./db";
 import dotenv from "dotenv";
+import { errorHandler } from "./middlewares/errorHandler";
 
 dotenv.config();
 
@@ -26,6 +27,8 @@ app.get("/api", (_req, res) => {
 app.all("/{*any}", (req, res, next) => {
   res.status(404).json({ error: "This route does not exist" });
 });
+
+app.use(errorHandler);
 
 const startServer = async () => {
   try {
