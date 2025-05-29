@@ -1,0 +1,10 @@
+CREATE TABLE IF NOT EXISTS Contact (
+  id SERIAL PRIMARY KEY,
+  phoneNumber VARCHAR(255) NULL,
+  email VARCHAR(255) NULL,
+  linkedId INTEGER NULL REFERENCES Contact(id),
+  linkPrecedence VARCHAR(10) NOT NULL CHECK (linkPrecedence IN ('primary', 'secondary')),
+  createdAt TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  updatedAt TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  deletedAt TIMESTAMP NULL
+);
